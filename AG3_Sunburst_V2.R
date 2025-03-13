@@ -19,19 +19,6 @@ dbListTables(mydb)
 Substanzen <- dbGetQuery(mydb, "SELECT * FROM Substanz")
 
 
-
-
-
-Substanzen$Number <- 1
-
-dout <- data_to_hierarchical(Substanzen, c(Lieferregister, Bezeichnung), Number)
-
-hchart(dout, type = "sunburst")
-
-df <- data.frame(matrix(unlist(dout), ncol = max(lengths(dout)), byrow = TRUE))
-
-names(df) <- names(dout[[which(lengths(dout)>0)[1]]])
-
 ################################################################################
 
 
